@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { getDatabase, ref, onValue, off } from 'firebase/database';
+import { getDatabase, ref, onValue, off, update } from 'firebase/database';
 import { app } from '../firebase';
-import  UserActivityTracker  from './UserActivityTracker'; // Import the UserActivityTracker component
+// import  UserActivityTracker  from './UserActivityTracker'; // Import the UserActivityTracker component
 
-const UserTable = () => {
+const UserTable = ({me}) => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -19,16 +19,22 @@ const UserTable = () => {
         userList.push({ id: userId, ...user, isActive });
       }
       setUsers(userList);
+      console.log(userList);
     });
+
+    const myDBRef = ref(database, `users/${me.uid}`);
+    document.onvisibilitychange = () => {
+        update(myDBRef, { isActive: !document.hidden});
+    }
 
     return () => {
       off(usersRef);
     };
   }, []);
-
+ 
   return (
     <div className="table-container">
-      <UserActivityTracker /> {/* Include the UserActivityTracker component */}
+      {/* <UserActivityTracker /> Include the UserActivityTracker component */}
       <h2>User Table</h2>
       <table className="user-table">
         <thead>

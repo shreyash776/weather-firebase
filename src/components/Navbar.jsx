@@ -7,7 +7,7 @@ import {app} from "../firebase"
 
 
 const auth =getAuth(app);
-const Navbar = () => {
+const Navbar = ({setMe}) => {
 const { user, isAdmin } = useAuth();
 
     const [userName, setUserName] = useState(null);
@@ -15,6 +15,7 @@ const { user, isAdmin } = useAuth();
         const unsubscribe = onAuthStateChanged(auth, (user) => {
           if (user) {
             setUserName(user.email);
+            setMe(user)
             // console.log("value of user:",user)
             // console.log("name of user:",user.name)
 
@@ -38,10 +39,10 @@ const { user, isAdmin } = useAuth();
     };
  return (
     <nav className="navbar">
-      <div className="navbar-logo">SkyVue</div>
+      <div className="navbar-logo">SkyView</div>
       <div className="navbar-links" >
         <a href="/">Home</a>
-        <a href="/about">User: {userName}</a>
+        <a className='name'>User: {userName}</a>
         <NavLink to="/admintable" style={{ display: isAdmin ? 'block' : 'none' }} ><a >Admin table</a></NavLink>
         <NavLink to="/usertable" style={{ display: user ? 'block' : 'none' }}>
   <a>Active users</a>

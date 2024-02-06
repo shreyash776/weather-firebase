@@ -30,7 +30,7 @@ const SignIn = () => {
      <div className="signup-container">
     <div className="signup-image">
     
-      <img src="https://static.vecteezy.com/system/resources/previews/002/027/488/large_2x/illustration-of-sign-in-page-login-website-page-and-form-people-with-smartphone-screen-vector.jpg" alt="Signup" />
+      <img src="/undraw_mobile_login_re_9ntv.svg" alt="Signup" />
     </div>
     <div className="signup-form">
       <h1>Signin</h1>

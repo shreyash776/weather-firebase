@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter, Routes, Route,Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
  import SignUp from './components/SignUp';
@@ -7,17 +7,18 @@ import Weather from './components/Weather';
 // import PrivateRoute from './components/PrivateRoute';
 import UserTable from './components/UserTable';
 import AdminTable from './components/AdminTable';
-import UserActivityTracker from './components/UserActivityTracker';
+// import UserActivityTracker from './components/UserActivityTracker';
 import NotFound from "./components/NotFound"
 import useAuth from './hooks/useAuth';
 import './App.css'
 function App() {
   const { user, isAdmin } = useAuth();
+  const [me, setMe]= useState();
   console.log("content in user ",user)
   return (
     <BrowserRouter>
-      <UserActivityTracker />
-     <Navbar />
+      {/* <UserActivityTracker /> */}
+     <Navbar setMe={setMe} />
     <Routes>
      
       <Route exact path="/" element={<SignUp />} />
@@ -31,7 +32,7 @@ function App() {
   <Route
     exact
     path="/usertable"
-    element={user ? <UserTable /> : <NotFound />}
+    element={user ? <UserTable me={me} /> : <NotFound />}
   />
   <Route
     exact
