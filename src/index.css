@@ -1,0 +1,177 @@
+body{
+  margin:0;
+  padding: 0;
+  overflow:hidden;
+
+}
+.signup-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.signup-image {
+  flex: 1;
+  padding: 20px;
+  max-height: 100vh; 
+}
+
+.signup-image img {
+  width: 100%;
+  height:auto;
+  border-radius: 10px;
+  max-height: 100vh; 
+
+ 
+}
+
+.signup-form {
+  flex: 1;
+  padding: 20px;
+  background-color: #d2deea; 
+  border-radius: 10px;
+  max-width: 400px; 
+  margin: 20px;
+}
+
+.signup-form h1 {
+  text-align: center;
+}
+
+.signup-form .form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-form label {
+  margin-top: 10px;
+}
+
+.signup-form input {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.signup-form button {
+  background-color: #44d4ed; /* You can change the button color */
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+}
+.container{
+  max-width: 1080px;
+  margin: 20px auto;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-toggle {
+  cursor: pointer;
+  display: none;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 6px 0;
+}
+.navbar-links button{
+  background-color: #44d4ed; 
+  color: #333; 
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+  }
+
+  .navbar-links.active {
+    display: flex;
+    
+  }
+
+  .navbar-links a {
+    margin: 10px 0;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+}
+.table-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height:auto;
+}
+
+.user-table {
+  
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.user-table button{
+  background-color: rgb(244, 66, 66);
+   
+  color: #333; 
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+th {
+  background-color: #f8f8f8;
+  font-weight: bold;
+  color: #333;
+}
