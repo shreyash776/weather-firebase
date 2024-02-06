@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getDatabase, ref, onValue, remove } from 'firebase/database';
-
+import { getAuth, deleteUser } from 'firebase/auth';
 const AdminTable = () => {
   const [users, setUsers] = useState([]);
 
@@ -26,7 +26,14 @@ const AdminTable = () => {
     const database = getDatabase();
     const userRef = ref(database, `users/${userId}`);
     remove(userRef)
-      .then(() => console.log('User data deleted successfully'))
+      .then(() => {console.log('User data deleted successfully')
+      const auth = getAuth();
+      const user = auth.currentUser;
+      deleteUser(user, userId)
+        .then(() => console.log('User deleted from Authentication'))
+        .catch((error) => console.error('Error deleting user from Authentication:', error));
+    })
+   
       .catch((error) => console.error('Error deleting user data:', error));
   };
 

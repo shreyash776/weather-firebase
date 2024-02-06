@@ -22,8 +22,9 @@ const UserTable = ({me}) => {
       console.log(userList);
     });
 
-    const myDBRef = ref(database, `users/${me.uid}`);
     document.onvisibilitychange = () => {
+      console.log('visibility', document.hidden ? 'hidden' : 'visible');
+      const myDBRef = ref(database, `users/${me.uid}`);
         update(myDBRef, { isActive: !document.hidden});
     }
 
