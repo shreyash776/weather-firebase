@@ -17,7 +17,7 @@ const useAuth = () => {
 
         // Check if the user is admin
         const userEmail = currentUser.email;
-        if (userEmail === 'shreyashchaurasia77@gmail.com') {
+        if (userEmail === 'admin@gmail.com') {
           setIsAdmin(true);
         }
 

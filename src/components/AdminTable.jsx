@@ -27,11 +27,11 @@ const AdminTable = () => {
     const userRef = ref(database, `users/${userId}`);
     remove(userRef)
       .then(() => {console.log('User data deleted successfully')
-      const auth = getAuth();
-      const user = auth.currentUser;
-      deleteUser(user, userId)
-        .then(() => console.log('User deleted from Authentication'))
-        .catch((error) => console.error('Error deleting user from Authentication:', error));
+      // const auth = getAuth();
+      // const user = auth.currentUser;
+      // deleteUser(user, userId)
+      //   .then(() => console.log('User deleted from Authentication'))
+      //   .catch((error) => console.error('Error deleting user from Authentication:', error));
     })
    
       .catch((error) => console.error('Error deleting user data:', error));
